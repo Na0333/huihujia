@@ -25,7 +25,7 @@ export default function CareView() {
       <div className="relative px-5 pt-5 pb-10 mb-2">
         <div 
           className="absolute inset-0 bg-cover bg-center h-[320px] -z-10"
-          style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDpR29l81D1kcIWfZFu_XinFRVXVwbBq8bKZHkjZRWYHoEVymZGQ9H8awgg-hPpyoFc5mefPhEKJRVSprFK2jsi_9HH4t9r_ARPAA7z6DTnbi0FQp1FK8k-X8h8TuaaHdRQb1HJFRKABor-NJQm34uBeUmtSFVjY2KCKCbHAnSHv_vA0mlnuVHAY9V8XlIaN0cJpGFDQZU6cqya4e7jlub7BLfAPUC60GDVcRtf8M2MAgiJRJZXKoqO1CF_o_vvwZHy9TIMprivvaib')" }}
+            style={{ backgroundImage: "url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800')" }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-surface/20 via-surface/60 to-surface"></div>
         </div>
@@ -45,7 +45,7 @@ export default function CareView() {
             <div className="flex items-center gap-4 flex-1">
               <div className="relative shrink-0">
                  <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-surface-container-lowest shadow-sm">
-                   <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPJYRepo9f5a89-ITcnOzsg90VFIkdPr0iTGdrwVtSNqzSPuHkk4ayEtygfxNl1nqvqiOuaXfgybfxOZ8ZbQnGcNyaJDd5YBfTgGVheL3Xet9Fr-j6rNzNJWFqImPciNL1-G6SdDnJWQhX31etYSnITGDcQCtHnGnfYcYelAwaGCLT9AtoPlnY7mxw3AqtypBKhWOrWARYEOS3sGCXutSwkrPqKobGxj3HG57ic_vE7IYbeHySVG5EsmDzpmLAe-3OXlsUW4Y13njS" alt="Profile" className="w-full h-full object-cover"/>
+                      <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200" alt="Profile" className="w-full h-full object-cover"/>
                  </div>
                  <div className="absolute bottom-0 right-0 bg-white rounded-full p-1.5 shadow-sm border border-outline-variant/10">
                     <HeartIconFilled />

@@ -302,7 +302,7 @@ export default function AIChatView() {
             <div key={index} className="flex flex-col items-end gap-1.5 mt-2 animate-in fade-in slide-in-from-bottom-4 duration-300">
               <div className="flex items-start gap-3 flex-row-reverse">
                 <div className="w-9 h-9 rounded-full bg-surface-container-high overflow-hidden shrink-0 shadow-sm border border-outline-variant/20">
-                  <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgIqeVRdYlcNsYxfNJeCMxRd6gHB2rS65BvSsYrKvIgif7dYblfEwg72KNFbx1JK6X0S_gYBcISgAR5I43ikp4GotgdnqFVgkEOa4MM_SWqKjaqm6DwigYcBdftT8qTbB_F5LbLFXVLJrNLwgfOhcLwboW_fsgT_uttozU0c52RKxtZNp8bLBHr20uk3b3iNpuTYZMifSt0vVySfzaeRs4T7-pCOEEses65x4vYgkwIDiAFvDaK7w7TbVQbQ8j2ByU5Z2NCWWpoqQS" alt="用户头像" className="w-full h-full object-cover"/>
+                  <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200" alt="用户头像" className="w-full h-full object-cover"/>
                 </div>
                 <div className="bg-primary-container text-on-primary-container rounded-[20px] rounded-tr-sm px-4 py-3 shadow-sm max-w-[80vw]">
                   <p className="text-[15px] font-medium leading-relaxed">{msg.content}</p>

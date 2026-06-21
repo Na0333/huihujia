@@ -18,7 +18,7 @@ export default function HealthRecordView({ onBack }: { onBack: () => void }) {
         {/* Profile Basic Info */}
         <div className="flex items-center gap-4 bg-surface-container-lowest p-5 rounded-[20px] border border-outline-variant/20">
           <div className="w-16 h-16 rounded-full overflow-hidden shrink-0">
-             <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPJYRepo9f5a89-ITcnOzsg90VFIkdPr0iTGdrwVtSNqzSPuHkk4ayEtygfxNl1nqvqiOuaXfgybfxOZ8ZbQnGcNyaJDd5YBfTgGVheL3Xet9Fr-j6rNzNJWFqImPciNL1-G6SdDnJWQhX31etYSnITGDcQCtHnGnfYcYelAwaGCLT9AtoPlnY7mxw3AqtypBKhWOrWARYEOS3sGCXutSwkrPqKobGxj3HG57ic_vE7IYbeHySVG5EsmDzpmLAe-3OXlsUW4Y13njS" className="w-full h-full object-cover" alt="Profile" />
+             <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200" className="w-full h-full object-cover" alt="Profile" />
           </div>
           <div>
             <h2 className="text-[20px] font-bold text-on-surface mb-1">张阿姨</h2>

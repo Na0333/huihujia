@@ -54,7 +54,7 @@ export default function HomeView({ onNavigate }: { onNavigate?: (tab: string) =>
       )}
       <div 
         className="ambient-bg" 
-        style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDRACsKbY7BaKL42LOLQlogNpiiS7ELZet-c4k6w_gsDKVa2cxjfV-cDBeWivkyST_bTSoq0v9qeBWxuHlW27IusCo1WSEL9bZ24oqFH2WRildMAgcfuNGiN3o-x-vCNgV4mFOER2qfCvh9lBT7TodscWywmGOSYrcUH6yWgqufIFakFFHlWzqhD3zTCZKnmzMNVTCBXEwKraSBefhOW0gfukMvihsaQrgn3G0x6A9ZhKr0Q2Ompafc6w-ZblW8ET20Mp3cRVm7jQHB')" }}
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800')" }}
       />
       
       {/* Header */}
@@ -105,7 +105,7 @@ export default function HomeView({ onNavigate }: { onNavigate?: (tab: string) =>
             className="w-10 h-10 rounded-full overflow-hidden border-[2.5px] border-surface shadow-sm cursor-pointer hover:scale-95 transition-transform shrink-0"
           >
             <img 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFg42TD8dUbiUKcsQaYh5oYQOSXYLWSxW6lQUicJq9KFXNgiuhzGWu3mGiHfm23YGIEvUDJfv3bYw9Og8CsQDCthkcu4S6kkZIOiRXdjD2_0SN_uITULWNcf_0C50wGZTHaO0E3tU4i_NUMTSCnO5BSVqODoKHn5NMeZVN8c7V6a3pFHIgzuMnkpe0FW8j7WFXApCAcVHIQJT3nQ6kKp7DIu2EFgyBvNb6zWrmZQ7wOq2oyBYLvtw16j3o1uxhgHlH56C6tuUkasvT" 
+              src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200" 
               alt="Profile" 
               className="w-full h-full object-cover"
             />

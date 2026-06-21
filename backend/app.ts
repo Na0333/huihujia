@@ -56,7 +56,7 @@ const DEFAULT_FAMILY_MEMBERS: FamilyMember[] = [
   {
     id: 1,
     name: "小慧",
-    phone: "13800138000",
+    phone: "",
     relation: "主照护人/女儿",
     isEmergency: true,
     avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200",
@@ -64,7 +64,7 @@ const DEFAULT_FAMILY_MEMBERS: FamilyMember[] = [
   {
     id: 2,
     name: "小明",
-    phone: "13900139000",
+    phone: "",
     relation: "家人/儿子",
     isEmergency: false,
     avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=200",

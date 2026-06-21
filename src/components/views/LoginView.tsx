@@ -72,7 +72,7 @@ export default function LoginView({
     <div className="flex flex-col h-screen relative font-sans w-full max-w-md mx-auto bg-surface shadow-2xl overflow-hidden sm:border-x sm:border-surface-variant">
       <div 
         className="absolute inset-0 bg-cover bg-center h-1/2 opacity-60"
-        style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDRACsKbY7BaKL42LOLQlogNpiiS7ELZet-c4k6w_gsDKVa2cxjfV-cDBeWivkyST_bTSoq0v9qeBWxuHlW27IusCo1WSEL9bZ24oqFH2WRildMAgcfuNGiN3o-x-vCNgV4mFOER2qfCvh9lBT7TodscWywmGOSYrcUH6yWgqufIFakFFHlWzqhD3zTCZKnmzMNVTCBXEwKraSBefhOW0gfukMvihsaQrgn3G0x6A9ZhKr0Q2Ompafc6w-ZblW8ET20Mp3cRVm7jQHB')" }}
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800')" }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-surface/20 to-surface"></div>
       </div>
