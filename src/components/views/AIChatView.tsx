@@ -81,15 +81,21 @@ export default function AIChatView() {
   useEffect(() => {
     let isMounted = true;
 
-    // 纯前端模式：直接设置配置
-    if (isMounted) {
-      setConfig({
-        provider: 'DeepSeek (前端直连)',
-        model: 'deepseek-chat',
-        ready: true,
-        mode: 'deepseek',
-      });
-    }
+    // 尝试从后端获取运行时配置（首选后端代理请求）
+    (async () => {
+      try {
+        const res = await fetch('/api/chat/config');
+        if (!isMounted) return;
+        if (res.ok) {
+          const json = await res.json();
+          setConfig(json as ChatConfig);
+        } else {
+          setConfig(null);
+        }
+      } catch (e) {
+        setConfig(null);
+      }
+    })();
 
     return () => {
       isMounted = false;
@@ -118,20 +124,13 @@ export default function AIChatView() {
     setMessages(prev => [...prev, { role: 'assistant', content: '' }]);
 
     try {
-      // 从 Vite 环境变量中读取 API Key（请在部署环境或本地 `.env` 中配置 `VITE_DEEPSEEK_API_KEY`）
-      const apiKey = import.meta.env.VITE_DEEPSEEK_API_KEY || '';
-
-      const response = await fetch('https://api.deepseek.com/chat/completions', {
+      // 走后端代理（推荐），后端会使用服务器端的 `DEEPSEEK_API_KEY` 调用 DeepSeek。
+      const response = await fetch('/api/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${apiKey}`,
         },
-        body: JSON.stringify({
-          model: 'deepseek-chat',
-          messages: nextMessages,
-          stream: true,
-        }),
+        body: JSON.stringify({ messages: nextMessages }),
         signal: controller.signal,
       });
 
