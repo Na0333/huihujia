@@ -71,15 +71,18 @@ const DEFAULT_FAMILY_MEMBERS: FamilyMember[] = [
   },
 ];
 
+const DEFAULT_ADMIN_PASSWORD = process.env.DEFAULT_ADMIN_PASSWORD?.trim() || "";
 const DEFAULT_DB: AppDb = {
-  users: [
-    {
-      id: 1,
-      username: "admin",
-      password: "admin",
-      createdAt: new Date("2026-01-01T00:00:00.000Z").toISOString(),
-    },
-  ],
+  users: DEFAULT_ADMIN_PASSWORD
+    ? [
+        {
+          id: 1,
+          username: "admin",
+          password: DEFAULT_ADMIN_PASSWORD,
+          createdAt: new Date("2026-01-01T00:00:00.000Z").toISOString(),
+        },
+      ]
+    : [],
   familyMembers: DEFAULT_FAMILY_MEMBERS,
 };
 
