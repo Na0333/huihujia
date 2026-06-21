@@ -248,10 +248,15 @@ function setupSseHeaders(res: Response) {
     return;
   }
 
+  // Keep SSE response headers minimal but instruct intermediaries not to transform
+  // the stream (some proxies will buffer or compress streaming responses).
   res.setHeader("Content-Type", "text/event-stream");
-  res.setHeader("Cache-Control", "no-cache");
+  res.setHeader("Cache-Control", "no-cache, no-transform");
   res.setHeader("Connection", "keep-alive");
+  // Hint to reverse proxies (nginx, some CDNs) to avoid buffering the response
+  res.setHeader("X-Accel-Buffering", "no");
   res.setHeader("X-DeepSeek-Model", model);
+  // Some environments support flushHeaders; call if available to start streaming
   res.flushHeaders?.();
 }
 
