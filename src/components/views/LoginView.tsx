@@ -17,12 +17,12 @@ type LoginViewProps = {
 export default function LoginView({
   onLogin,
   onRegister,
-  initialUsername = 'admin',
+  initialUsername = '',
   notice = null,
 }: LoginViewProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [username, setUsername] = useState(initialUsername);
-  const [password, setPassword] = useState(initialUsername === 'admin' ? 'admin' : '');
+  const [password, setPassword] = useState('');
   const [message, setMessage] = useState<string | null>(null);
 
   const submitLogin = () => {
@@ -37,24 +37,17 @@ export default function LoginView({
     setIsLoading(true);
     setMessage(null);
 
-    // 纯前端静态校验（演示模式）
-    // 1. admin/admin 永远可以登录
-    // 2. 读取 localStorage 中注册的账号
+    // 纯前端演示：读取 localStorage 中注册的账号进行校验
     let authenticated = false;
-
-    if (trimmedUsername === 'admin' && trimmedPassword === 'admin') {
-      authenticated = true;
-    } else {
-      try {
-        const registered = JSON.parse(localStorage.getItem('huihujia_users') || '[]');
-        const found = registered.find(
-          (u: { username: string; password: string }) =>
-            u.username === trimmedUsername && u.password === trimmedPassword
-        );
-        if (found) authenticated = true;
-      } catch {
-        // ignore
-      }
+    try {
+      const registered = JSON.parse(localStorage.getItem('huihujia_users') || '[]');
+      const found = registered.find(
+        (u: { username: string; password: string }) =>
+          u.username === trimmedUsername && u.password === trimmedPassword
+      );
+      if (found) authenticated = true;
+    } catch {
+      // ignore
     }
 
     setIsLoading(false);
@@ -124,7 +117,7 @@ export default function LoginView({
               />
           </div>
 
-          <p className="text-[12px] text-on-surface-variant px-1 font-medium">默认体验账号：admin，密码：admin</p>
+          {/* 注意：不要在生产环境中使用前端静态默认凭据。请通过后端用户管理或环境变量配置管理员账号。 */}
 
           {notice && !message && (
             <div
