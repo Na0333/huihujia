@@ -17,12 +17,12 @@ type LoginViewProps = {
 export default function LoginView({
   onLogin,
   onRegister,
-  initialUsername = '',
+  initialUsername = 'admin',
   notice = null,
 }: LoginViewProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [username, setUsername] = useState(initialUsername);
-  const [password, setPassword] = useState('');
+  const [password, setPassword] = useState(initialUsername === 'admin' ? 'admin' : '');
   const [message, setMessage] = useState<string | null>(null);
 
   const submitLogin = () => {
@@ -37,17 +37,24 @@ export default function LoginView({
     setIsLoading(true);
     setMessage(null);
 
-    // 纯前端演示：读取 localStorage 中注册的账号进行校验
+    // 纯前端静态校验（演示模式）
+    // 1. admin/admin 永远可以登录
+    // 2. 读取 localStorage 中注册的账号
     let authenticated = false;
-    try {
-      const registered = JSON.parse(localStorage.getItem('huihujia_users') || '[]');
-      const found = registered.find(
-        (u: { username: string; password: string }) =>
-          u.username === trimmedUsername && u.password === trimmedPassword
-      );
-      if (found) authenticated = true;
-    } catch {
-      // ignore
+
+    if (trimmedUsername === 'admin' && trimmedPassword === 'admin') {
+      authenticated = true;
+    } else {
+      try {
+        const registered = JSON.parse(localStorage.getItem('huihujia_users') || '[]');
+        const found = registered.find(
+          (u: { username: string; password: string }) =>
+            u.username === trimmedUsername && u.password === trimmedPassword
+        );
+        if (found) authenticated = true;
+      } catch {
+        // ignore
+      }
     }
 
     setIsLoading(false);
@@ -72,7 +79,7 @@ export default function LoginView({
     <div className="flex flex-col h-screen relative font-sans w-full max-w-md mx-auto bg-surface shadow-2xl overflow-hidden sm:border-x sm:border-surface-variant">
       <div 
         className="absolute inset-0 bg-cover bg-center h-1/2 opacity-60"
-        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800')" }}
+        style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDRACsKbY7BaKL42LOLQlogNpiiS7ELZet-c4k6w_gsDKVa2cxjfV-cDBeWivkyST_bTSoq0v9qeBWxuHlW27IusCo1WSEL9bZ24oqFH2WRildMAgcfuNGiN3o-x-vCNgV4mFOER2qfCvh9lBT7TodscWywmGOSYrcUH6yWgqufIFakFFHlWzqhD3zTCZKnmzMNVTCBXEwKraSBefhOW0gfukMvihsaQrgn3G0x6A9ZhKr0Q2Ompafc6w-ZblW8ET20Mp3cRVm7jQHB')" }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-surface/20 to-surface"></div>
       </div>
@@ -117,7 +124,7 @@ export default function LoginView({
               />
           </div>
 
-          {/* 注意：不要在生产环境中使用前端静态默认凭据。请通过后端用户管理或环境变量配置管理员账号。 */}
+          <p className="text-[12px] text-on-surface-variant px-1 font-medium">默认体验账号：admin，密码：admin</p>
 
           {notice && !message && (
             <div

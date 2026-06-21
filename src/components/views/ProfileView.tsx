@@ -126,7 +126,7 @@ export default function ProfileView({ onLogout }: { onLogout?: () => void }) {
          <h1 className="text-[20px] font-bold text-on-surface">张阿姨家</h1>
          {/* Small avatar top right mimicking standard nav, though usually hidden if big avatar below */}
          <div className="absolute right-5 w-9 h-9 rounded-full overflow-hidden border-2 border-surface shadow-sm cursor-pointer hover:bg-surface-container">
-            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200" className="w-full h-full object-cover" alt="Profile" />
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFg42TD8dUbiUKcsQaYh5oYQOSXYLWSxW6lQUicJq9KFXNgiuhzGWu3mGiHfm23YGIEvUDJfv3bYw9Og8CsQDCthkcu4S6kkZIOiRXdjD2_0SN_uITULWNcf_0C50wGZTHaO0E3tU4i_NUMTSCnO5BSVqODoKHn5NMeZVN8c7V6a3pFHIgzuMnkpe0FW8j7WFXApCAcVHIQJT3nQ6kKp7DIu2EFgyBvNb6zWrmZQ7wOq2oyBYLvtw16j3o1uxhgHlH56C6tuUkasvT" className="w-full h-full object-cover" alt="Profile" />
          </div>
       </header>
 
@@ -134,7 +134,7 @@ export default function ProfileView({ onLogout }: { onLogout?: () => void }) {
          {/* Profile summary block */}
          <section className="flex items-center gap-5">
             <div className="w-24 h-24 rounded-full border-4 border-surface-container-lowest overflow-hidden shadow-sm shrink-0 bg-surface-container-high">
-              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200" className="w-full h-full object-cover" alt="Profile" />
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPJYRepo9f5a89-ITcnOzsg90VFIkdPr0iTGdrwVtSNqzSPuHkk4ayEtygfxNl1nqvqiOuaXfgybfxOZ8ZbQnGcNyaJDd5YBfTgGVheL3Xet9Fr-j6rNzNJWFqImPciNL1-G6SdDnJWQhX31etYSnITGDcQCtHnGnfYcYelAwaGCLT9AtoPlnY7mxw3AqtypBKhWOrWARYEOS3sGCXutSwkrPqKobGxj3HG57ic_vE7IYbeHySVG5EsmDzpmLAe-3OXlsUW4Y13njS" className="w-full h-full object-cover" alt="Profile" />
             </div>
             <div className="flex flex-col gap-2">
                <h2 className="text-[28px] font-display font-bold text-on-surface">张阿姨</h2>
