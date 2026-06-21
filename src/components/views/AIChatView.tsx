@@ -67,7 +67,6 @@ export default function AIChatView() {
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [config, setConfig] = useState<ChatConfig | null>(null);
-  const [debugLogs, setDebugLogs] = useState<string[]>([]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
 
@@ -135,15 +134,6 @@ export default function AIChatView() {
         signal: controller.signal,
       });
 
-      // Debug: log response status and headers to on-page debug panel
-      setDebugLogs(prev => [...prev, `Response: ${response.status} ${response.statusText}`]);
-      try {
-        const entries: string[] = [];
-        response.headers.forEach((value, key) => entries.push(`${key}: ${value}`));
-        setDebugLogs(prev => [...prev, `Headers: ${entries.join(' | ')}`]);
-      } catch (e) {
-        setDebugLogs(prev => [...prev, `Headers: (failed to read)`]);
-      }
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => null);
@@ -168,8 +158,6 @@ export default function AIChatView() {
 
         for (const line of lines) {
           const trimmedLine = line.trim();
-          // Debug: capture raw SSE lines
-          setDebugLogs(prev => [...prev, `SSE: ${trimmedLine}`]);
           if (trimmedLine.startsWith('data: ') && trimmedLine !== 'data: [DONE]') {
             try {
               const data = JSON.parse(trimmedLine.slice(6));
@@ -180,7 +168,6 @@ export default function AIChatView() {
               }
             } catch (e) {
               console.error('解析流数据失败:', e);
-              setDebugLogs(prev => [...prev, `Parse error: ${String(e)}`]);
             }
           }
         }
@@ -191,7 +178,6 @@ export default function AIChatView() {
       } else {
         console.error('Chat error:', error);
         replaceEmptyAssistantMessage(setMessages, `连接出错：${error.message || 'DeepSeek 对话请求失败'}`);
-        setDebugLogs(prev => [...prev, `Client error: ${String(error)}`]);
       }
     } finally {
       if (abortControllerRef.current === controller) {
@@ -391,17 +377,7 @@ export default function AIChatView() {
           )}
         </div>
       </div>
-      {/* Debug panel - temporary, visible for troubleshooting */}
-      <div className="px-4 py-3 bg-surface-container-lowest/90 backdrop-blur-xl border-t border-outline-variant/30 shrink-0 mt-2">
-        <details>
-          <summary className="text-sm font-medium">调试日志 (点击展开)</summary>
-          <div className="max-h-44 overflow-auto text-xs mt-2 whitespace-pre-wrap">
-            {debugLogs.length === 0 ? <div className="text-on-surface-variant">尚无日志</div> : debugLogs.map((l, i) => (
-              <div key={i} className="pb-1">{l}</div>
-            ))}
-          </div>
-        </details>
-      </div>
+      
     </div>
   );
 }
