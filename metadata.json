@@ -1,0 +1,6 @@
+{
+  "name": "慧护家 AI 智能管家",
+  "description": "面向家庭照护与智能家居的 DeepSeek 对话助手演示应用",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_API"]
+}
