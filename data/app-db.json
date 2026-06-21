@@ -1,18 +1,5 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "username": "admin",
-      "password": "admin",
-      "createdAt": "2026-01-01T00:00:00.000Z"
-    },
-    {
-      "id": 1781808995121,
-      "username": "123",
-      "password": "123",
-      "createdAt": "2026-06-18T18:56:35.121Z"
-    }
-  ],
+  "users": [],
   "familyMembers": [
     {
       "id": 1,
